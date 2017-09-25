@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Dicer
 {
-    public partial class AutomaticPlayPage : CarouselPage
+    public partial class AutomaticPlayPage : ContentPage
     {
         #region Fields
         readonly PlayViewModel viewmodel;
@@ -23,8 +23,6 @@ namespace Dicer
             BindingContext = viewmodel = new PlayViewModel(Site);
 
             viewmodel.Title = _titleText;
-
-            Children.Add(new MartingalePage(Site));
         }
 }
 }

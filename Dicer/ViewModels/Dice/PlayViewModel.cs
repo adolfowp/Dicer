@@ -133,26 +133,30 @@ namespace Dicer
 
         public decimal BetAmount
         {
-            get => _betAmount;
-            set => SetProperty(ref _betAmount, value);
+
+            get { return _betAmount; }
+            set { SetProperty(ref _betAmount, value); }
         }
 
         public decimal BetChance
         {
-            get => _betChance;
-            set => SetProperty(ref _betChance, value,
-                               onChanged: () =>
+            get { return _betChance; }
+            set
             {
-                BetMultiplier = (1.0m / (_betChance / 100m));
-                OnPropertyChanged(nameof(HighText));
-                OnPropertyChanged(nameof(LowText));
-            });
+                SetProperty(ref _betChance, value,
+                             onChanged: () =>
+                  {
+                      BetMultiplier = (1.0m / (_betChance / 100m));
+                      OnPropertyChanged(nameof(HighText));
+                      OnPropertyChanged(nameof(LowText));
+                  });
+            }
         }
 
         public decimal BetMultiplier
         {
-            get => _betMultiplier;
-            set => SetProperty(ref _betMultiplier, value);
+            get { return _betMultiplier; }
+            set { SetProperty(ref _betMultiplier, value); }
         }
 
         public decimal MinimumChanceAllowed { get; } = 0.01m;
@@ -160,28 +164,28 @@ namespace Dicer
 
         public decimal Amount
         {
-            get => _site.balance;
+            get { return _site.balance; }
         }
 
         public string Status
         {
-            get => _status;
-            set => SetProperty(ref _status, value);
+            get { return _status; }
+            set { SetProperty(ref _status, value); }
         }
 
         public string Currency
         {
-            get => _site.Currency;
+            get { return _site.Currency; }
         }
 
         public decimal LowText
         {
-            get => _betChance;
+            get { return _betChance; }
         }
 
         public decimal HighText
         {
-            get => 100m - _betChance;
+            get { return 100m - _betChance; }
         }
 
         public ObservableCollection<Bet> Bets { get; set; }

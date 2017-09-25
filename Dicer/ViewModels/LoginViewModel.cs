@@ -24,22 +24,22 @@ namespace Dicer
         string _username = string.Empty;
         public string Username
         {
-            get => _username;
-            set => SetProperty(ref _username, value);
+            get { return _username; }
+            set { SetProperty(ref _username, value); }
         }
 
         string _password = string.Empty;
         public string Password
         {
-            get => _password;
-            set => SetProperty(ref _password, value);
+            get { return _password; }
+            set { SetProperty(ref _password, value); }
         }
 
         string _twofa = string.Empty;
         public string TwoFa
         {
-            get => _twofa;
-            set => SetProperty(ref _twofa, value);
+            get { return _twofa; }
+            set { SetProperty(ref _twofa, value); }
         }
 
         public ICommand SignIn { get; set; }
