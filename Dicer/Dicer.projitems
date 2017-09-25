@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Dice\AutomaticPlayViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AccountsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -29,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Bet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\json.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sites\dice999.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ContenViews\ValueExposer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\ManualPlayPage.xaml.cs">
       <DependentUpon>ManualPlayPage.xaml</DependentUpon>
     </Compile>
@@ -95,7 +97,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)templates\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Sites\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Dice\" />
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Dice\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Data Templates\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Strategies\" />

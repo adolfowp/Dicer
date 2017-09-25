@@ -44,8 +44,8 @@ namespace Dicer
         #region Properties
         public decimal BaseBalance
         {
-            get => _baseBalance;
-            set => SetProperty(ref _baseBalance, value);
+            get { return _baseBalance; }
+            set { SetProperty(ref _baseBalance, value); }
         }
 
         public ICommand StartCommand { get; private set; }
@@ -53,55 +53,61 @@ namespace Dicer
 
         public decimal StartingBet
         {
-            get => _startingBet;
-            set => SetProperty(ref _startingBet, value);
+            get { return _startingBet; }
+            set { SetProperty(ref _startingBet, value); }
         }
         public decimal OnLose
         {
-            get => _onLose;
-            set => SetProperty(ref _onLose, value);
+            get { return _onLose; }
+            set { SetProperty(ref _onLose, value); }
         }
         public decimal OnWin
         {
-            get => _onWin;
-            set => SetProperty(ref _onWin, value);
+            get { return _onWin; }
+            set { SetProperty(ref _onWin, value); }
         }
 
         public bool ReturnToBaseOnLose
         {
-            get => _returnToBaseOnLose;
-            set => SetProperty(ref _returnToBaseOnLose, value,
-                               onChanged: () => IncrementOnLoseEnabled = !value);
+            get { return _returnToBaseOnLose; }
+            set
+            {
+                SetProperty(ref _returnToBaseOnLose, value,
+                             onChanged: () => IncrementOnLoseEnabled = !value);
+            }
         }
 
         public bool ReturnToBaseOnWin
         {
-            get => _returnToBaseOnWin;
-            set => SetProperty(ref _returnToBaseOnWin, value,
-                               onChanged: () => IncrementOnWinEnabled = !value);
+            get { return _returnToBaseOnWin; }
+            set
+            {
+                SetProperty(ref _returnToBaseOnWin, value,
+                             onChanged: () => IncrementOnWinEnabled = !value);
+            }
         } 
 
         public bool IncrementOnLoseEnabled 
         {
-            get => _isIncrementOnLoseEnabled;
-            set => SetProperty(ref _isIncrementOnLoseEnabled, value);
+            get { return _isIncrementOnLoseEnabled; }
+            set { SetProperty(ref _isIncrementOnLoseEnabled, value); }
         }
         public bool IncrementOnWinEnabled
         {
-			get => _isIncrementOnWinEnabled;
-			set => SetProperty(ref _isIncrementOnWinEnabled, value);
+			get { return _isIncrementOnWinEnabled; }
+			set { SetProperty(ref _isIncrementOnWinEnabled, value); }
         }
 
         public bool LimitOnProfitEnabled
         {
-            get => _isLimitOnProfitEnabled;
-            set => SetProperty(ref _isLimitOnProfitEnabled, value);
+            get { return _isLimitOnProfitEnabled; }
+            set { SetProperty(ref _isLimitOnProfitEnabled, value); }
         }
 
 		public bool LimitOnLossesEnabled
 		{
-			get => _isLimitOnLossesEnabled;
-            set => SetProperty(ref _isLimitOnLossesEnabled, value);
+			get { return _isLimitOnLossesEnabled; }
+            set { SetProperty(ref _isLimitOnLossesEnabled, value); }
 		}
 
 
@@ -110,7 +116,7 @@ namespace Dicer
 		#region Methods
 		public async Task<int> Run(DiceSite Site)
 		{
-            if (LimitOnLossesEnabled && Site.profit < )
+            if (LimitOnLossesEnabled && Site.profit < 0)
 				return 0;
 
 			if (stoponwin)
