@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+    Title = "{Binding Title}"
+    x:Class="Dicer.ManualPlayPage">
+
+    <Grid Padding = "20,20,20,20" RowSpacing = "10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "auto"/>
+            <RowDefinition Height = "auto"/>
+            <RowDefinition Height = "auto"/>
+            <RowDefinition Height = "auto"/>
+            <RowDefinition Height = "*"/>
+            <RowDefinition Height = "auto"/>
+        </Grid.RowDefinitions>
+
+        <!--  Head info -->
+        <StackLayout Grid.ColumnSpan = "2">
+            <Label FontSize = "Small" Grid.ColumnSpan = "2"
+                HorizontalTextAlignment = "Center" Text = "Amount" />
+            <StackLayout Grid.Row = "1" Grid.ColumnSpan = "2" 
+                HorizontalOptions = "Center"
+                Orientation = "Horizontal" >
+                <Label FontSize = "Large" FontAttributes = "Bold"
+                    Text = "{Binding Amount}" VerticalTextAlignment = "End" />
+                <Label FontSize = "Medium" VerticalTextAlignment = "Center"
+                    Text = "{Binding Currency}" />
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Bet Setting -->
+        <Label Grid.Row = "1" Text = "Bet Amount: " Margin = "0, 0, 20, 0"
+        VerticalTextAlignment = "Center" HorizontalTextAlignment = "End"/>
+        <Entry x:Name = "BetAmount" Grid.Row = "1" Grid.Column = "1"
+           Keyboard = "Numeric" HorizontalTextAlignment = "End"
+           Text = "{Binding BetAmount}" IsEnabled = "true" />
+
+        <Grid Grid.Row = "2" Grid.ColumnSpan = "2"
+            HorizontalOptions = "FillAndExpand">
+
+            <Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+
+        <Slider Grid.Row = "0" Grid.ColumnSpan = "2"
+                x:Name = "sldChance"
+                Value = "{Binding BetChance}"
+                Minimum = "{Binding MinimumChanceAllowed}"
+                Maximum = "{Binding MaximumChanceAllowed}" />
+        <!--<Label Grid.Row = "2" Text = "Chance: " Margin = "0, 0, 20, 0"
+        VerticalTextAlignment = "Center" HorizontalTextAlignment = "End"/>-->
+        <Label x:Name = "BetChance" Grid.Row = "1" Grid.Column = "1"
+           HorizontalTextAlignment = "Center"
+           TextColor = "Silver" FontSize = "Medium"
+           Text = "{Binding BetMultiplier, StringFormat='x{0:0.0000}'}" />
+
+        <Label Grid.Row = "1" Grid.Column = "0"
+           HorizontalTextAlignment = "Center"
+            TextColor = "Silver" FontSize = "Medium"
+            Text = "{Binding BetChance, StringFormat='{0:0.##}%'}" />  
+        </Grid>
+
+        <!-- Betting Action -->
+        <Button x:Name = "BetHigh" Grid.Column = "1" Grid.Row = "3"
+            Command = "{Binding BetHighCommand}"
+            BackgroundColor = "Red" TextColor = "White" 
+            Text = "{Binding HighText, StringFormat='&gt; {0:0.00}'}"/>
+        <Button x:Name = "BetLow" Grid.Column = "0" Grid.Row = "3"
+            Command = "{Binding BetLowCommand}"
+            BackgroundColor = "Green" TextColor = "White" 
+            Text = "{Binding LowText, StringFormat='&lt; {0:0.00}'}" />
+
+        <!-- Info -->
+        <!--<ListView x:Name = "LogList" Grid.Row = "4" Grid.ColumnSpan = "2"
+                ItemsSource = "{Binding Bets}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+
+        <dg:DataGrid x:Name = "LogGrid" Grid.Row = "4" Grid.ColumnSpan = "2"
+            ItemsSource = "{Binding Bets}" SelectionEnabled = "False">
+            <dg:DataGrid.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="BetHeaderStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="Micro" />
+                    </Style>
+                </ResourceDictionary>
+            </dg:DataGrid.Resources>
+            <dg:DataGrid.Columns>
+                <dg:DataGridColumn Title = "High" PropertyName="high" Width="0.7*" 
+                    HeaderLabelStyle="{StaticResource BetHeaderStyle}" />
+                <dg:DataGridColumn Title = "Amount" PropertyName="Amount"
+                    HeaderLabelStyle="{StaticResource BetHeaderStyle}" />
+                <dg:DataGridColumn Title = "Roll" PropertyName="Roll"
+                    HeaderLabelStyle="{StaticResource BetHeaderStyle}" />
+                <dg:DataGridColumn Title = "Profit" PropertyName="Profit"
+                    HeaderLabelStyle="{StaticResource BetHeaderStyle}" />
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
+
+
+        <Label Grid.Row = "5" Grid.ColumnSpan = "2"
+               HorizontalTextAlignment = "End" VerticalOptions = "End"
+               Text = "{Binding Status}" />
+        
+    </Grid>
+    
+</ContentPage>

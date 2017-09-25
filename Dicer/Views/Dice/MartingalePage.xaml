@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Dicer.MartingalePage"
+    Title = "{Binding Title}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "*" />
+            <RowDefinition Height = "auto" />
+        </Grid.RowDefinitions>
+
+        <TableView >
+            <TableSection Title = "Settings">
+                <EntryCell 
+                    Label = "Starting Bet" Text = "{Binding StartingBet}"
+                    Keyboard = "Numeric" HorizontalTextAlignment = "End"/>
+                <EntryCell 
+                    Label = "Bet Chance" Text = "{Binding BetChance}"
+                    Keyboard = "Numeric" HorizontalTextAlignment = "End"/>
+            </TableSection>
+
+            <TableSection Title = "On Lose">
+                <SwitchCell x:Name = "loseBaseBet"
+                    Text = "Return to base bet"
+                    On = "{Binding ReturnToBaseOnLose}" />
+                <EntryCell
+                    IsEnabled = "{Binding IncrementOnLoseEnabled}"
+                    Label = "On Lose (%)" Keyboard = "Numeric" 
+                    Text = "{Binding OnLose}" HorizontalTextAlignment = "End" />
+            </TableSection>
+
+            <TableSection Title = "On Win">
+                <SwitchCell x:Name = "winBaseBet"
+                    Text = "Return to base bet"
+                    On = "{Binding ReturnToBaseOnWin}" />
+                <EntryCell
+                    IsEnabled = "{Binding IncrementOnWinEnabled}"
+                    Label = "On Win (%)" Keyboard = "Numeric" 
+                    Text = "{Binding OnWin}" HorizontalTextAlignment = "End" />
+            </TableSection>
+
+            <TableSection Title = "Limits">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width = "auto" />
+                                <ColumnDefinition Width = "0.9*" />
+                                <ColumnDefinition Width = "*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Switch IsToggled = "{Binding LimitOnProfitEnabled}"
+                                    Margin = "10, 0" VerticalOptions = "Center" />
+
+                            <Label Grid.Column = "1" Text = "Stop on profit"
+                                   VerticalOptions = "Center" FontSize = "Medium" />
+
+                            <Entry Grid.Column = "2" Keyboard = "Numeric"
+                                IsEnabled = "{Binding LimitOnProfitEnabled}"
+                                VerticalOptions = "Center"
+                                Margin = "4, 0" HorizontalTextAlignment = "End"/>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width = "auto" />
+                                <ColumnDefinition Width = "0.9*" />
+                                <ColumnDefinition Width = "*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Switch IsToggled = "{Binding LimitOnLossesEnabled}"
+                                    Margin = "10, 0" VerticalOptions = "Center" />
+
+                            <Label Grid.Column = "1" Text = "Stop on losses"
+                                   VerticalOptions = "Center" FontSize = "Medium" />
+
+                            <Entry Grid.Column = "2" Keyboard = "Numeric"
+                                   IsEnabled = "{Binding LimitOnLossesEnabled}"
+                                   VerticalOptions = "Center"
+                                   Margin = "4, 0" HorizontalTextAlignment = "End"/>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </TableSection>
+
+        </TableView>
+
+        <Button x:Name = "StartButton" Grid.Row = "1" Text = "Start" 
+            TextColor = "White" BackgroundColor = "{StaticResource Primary}"
+            Command = "{Binding StartCommand}" Margin = "5"/>
+    </Grid>
+    
+</ContentPage>

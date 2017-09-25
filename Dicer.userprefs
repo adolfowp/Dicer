@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{3D3F86B3-1F69-4E0E-8815-F31143E30125}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dicer/Views/Dice/AutomaticPlayPage.xaml.cs">
+    <Files>
+      <File FileName="Dicer/Views/Dice/AutomaticPlayPage.xaml" Line="8" Column="1" />
+      <File FileName="Dicer/Views/Dice/AutomaticPlayPage.xaml.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/adolfolombardi/Projects/Dicer/Dicer/Models/Sites/Bitsler.cs" relfile="Dicer/Models/Sites/Bitsler.cs" line="225" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Dicer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B0BBC7AB-FE9A-46A6-9D92-8CA178717E06" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Dicer.Droid PreferredExecutionTarget="Android.NexusTablet" />
+</Properties>

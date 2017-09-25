@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{172B1CD4-8D84-49CB-9A20-262DF3BDBEEF}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Dicer</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AccountsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DiceFileDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Account.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NewAccountViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DiceSite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Sites\Bitsler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Bet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\json.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Sites\dice999.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\ManualPlayPage.xaml.cs">
+      <DependentUpon>ManualPlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Dice\PlayViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\sqlite_helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\PlayPageFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\AccountsPage.xaml.cs">
+      <DependentUpon>AccountsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\ItemDetailPage.xaml.cs">
+      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\NewAccountPage.xaml.cs">
+      <DependentUpon>NewAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\NewItemPage.xaml.cs">
+      <DependentUpon>NewItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Data Templates\BetRowTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\PlayPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\AutomaticPlayPage.xaml.cs">
+      <DependentUpon>AutomaticPlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Email.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IAutomable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IAutomationRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Strategies\MartingaleViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\MartingalePage.xaml.cs">
+      <DependentUpon>MartingalePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Data Templates\SwitchableEntryCell.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Dice\ManualPlayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\AboutPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\AccountsPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\ItemDetailPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\NewAccountPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\NewItemPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Dice\AutomaticPlayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Dice\MartingalePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)templates\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\Sites\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Dice\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Dice\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Data Templates\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Strategies\" />
+  </ItemGroup>
+</Project>

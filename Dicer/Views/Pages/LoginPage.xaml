@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:vm="clr-namespace:Dicer;"
+    x:Class="Dicer.LoginPage"
+    Title="{Binding Title}">
+    
+    <ContentPage.Content>
+        <Grid Padding="20,40,20,20" ColumnSpacing="10" RowSpacing="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout>
+                <Image Source="dice.png" Margin="0,20,0,10"/>
+                <Label FontSize="Large" Text="Bitsler" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <!-- Login -->
+            <Grid Grid.Row="1" ColumnSpacing="30" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium"
+                    Text="User" VerticalTextAlignment="Center" />
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium"
+                    Text="Password" VerticalTextAlignment="Center" />
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium"
+                    Text="Two Fact" VerticalTextAlignment="Center" />
+
+                <Entry x:Name="UserEntry" Grid.Row="0" Grid.Column="1" 
+                    Placeholder="username" Keyboard="Default"
+                    Text="{Binding Username}"/>
+                <Entry x:Name="PassEntry" Grid.Row="1" Grid.Column="1" 
+                    Placeholder="password"
+                    Text="{Binding Password}"
+                    IsPassword="true"/>
+                <Entry x:Name="TwoFactorEntry" Grid.Row="2" Grid.Column="1" 
+                    Placeholder="two factor" Keyboard="Numeric"
+                    Text="{Binding TwoFa}"/>
+
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Margin="0, 10, 0, 0"
+                    BackgroundColor="{StaticResource Primary}" 
+                    TextColor="White" Text="Sign In" Command="{Binding SignIn}"/>
+                
+                <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Sign Up" />
+
+            </Grid>
+
+            <ActivityIndicator Grid.Row="0" 
+                Color="{StaticResource Accent}" IsRunning="{Binding IsBusy}"/>
+            
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>
