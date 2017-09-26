@@ -49,15 +49,15 @@ namespace Dicer
         string _completeSiteUrl = string.Empty;
         public string SiteUrl
         {
-            get => _completeSiteUrl;
-            set => _completeSiteUrl = value;
+            get { return _completeSiteUrl; }
+            set { _completeSiteUrl = value; }
         }
 
         string _completeBetUrl = string.Empty;
         public string BetUrl
         {
-            get => _completeBetUrl;
-            set => _completeBetUrl = value;
+            get { return _completeBetUrl; }
+            set { _completeBetUrl = value; }
         }
 
 		private bool _NonceBased = true;
