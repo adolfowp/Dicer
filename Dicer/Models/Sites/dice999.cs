@@ -65,10 +65,51 @@ namespace Dicer
 			else
                 SiteUrl = "https://www.999dice.com/?" + ReferName;
         }
-		#endregion
+        #endregion
 
-		#region Methods
-		async void GetBalanceThread()
+        #region Methods
+        protected override void CurrencyChanged()
+        {
+            Lastbalance = DateTime.Now.AddMinutes(-2);
+            GetBalance();
+            GetDepositAddress();
+        }
+
+        public void GetDepositAddress()
+        {
+            if (sessionCookie != "" && sessionCookie != null)
+            {
+                List<KeyValuePair<string, string>> pairs = new List<KeyValuePair<string, string>>();
+                pairs.Add(new KeyValuePair<string, string>("a", "GetDepositAddress"));
+                pairs.Add(new KeyValuePair<string, string>("s", sessionCookie));
+                pairs.Add(new KeyValuePair<string, string>("Currency", Currency));
+
+                FormUrlEncodedContent Content = new FormUrlEncodedContent(pairs);
+                string responseData = "";
+                using (var response = Client.PostAsync("", Content))
+                {
+                    try
+                    {
+                        responseData = response.Result.Content.ReadAsStringAsync().Result;
+                    }
+                    catch (AggregateException e)
+                    {
+                        if (e.InnerException.Message.Contains("ssl"))
+                        {
+                            GetDepositAddress();
+                            return;
+
+                        }
+                    }
+                }
+
+
+                d999deposit tmp = json.JsonDeserialize<d999deposit>(responseData);
+                MessagingCenter.Send<DiceSite, string>(this, "updateDeposit", tmp.Address);
+            }
+        }
+
+        async void GetBalanceThread()
 		{
 			while (isD999)
 			{

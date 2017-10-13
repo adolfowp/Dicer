@@ -99,6 +99,69 @@ namespace Dicer
 			}
 		}
 
+        protected override void CurrencyChanged()
+        {
+            base.CurrencyChanged();
+            lastupdate = DateTime.Now;
+            if (accesstoken != "" && IsBitsler)
+            {
+                try
+                {
+                    List<KeyValuePair<string, string>> pairs = new List<KeyValuePair<string, string>>();
+                    pairs.Add(new KeyValuePair<string, string>("access_token", accesstoken));
+                    FormUrlEncodedContent Content = new FormUrlEncodedContent(pairs);
+                    string sEmitResponse = Client.PostAsync("getuserstats", Content).Result.Content.ReadAsStringAsync().Result;
+                    bsStatsBase bsstatsbase = json.JsonDeserialize<bsStatsBase>(sEmitResponse.Replace("\"return\":", "\"_return\":"));
+                    if (bsstatsbase != null)
+                        if (bsstatsbase._return != null)
+                            if (bsstatsbase._return.success == "true")
+                            {
+                                switch (Currency.ToLower())
+                                {
+                                    case "btc":
+                                        balance = bsstatsbase._return.btc_balance;
+                                        profit = bsstatsbase._return.btc_profit;
+                                        wagered = bsstatsbase._return.btc_wagered; break;
+                                    case "ltc":
+                                        balance = bsstatsbase._return.ltc_balance;
+                                        profit = bsstatsbase._return.ltc_profit;
+                                        wagered = bsstatsbase._return.ltc_wagered; break;
+                                    case "doge":
+                                        balance = bsstatsbase._return.doge_balance;
+                                        profit = bsstatsbase._return.doge_profit;
+                                        wagered = bsstatsbase._return.doge_wagered; break;
+                                    case "eth":
+                                        balance = bsstatsbase._return.eth_balance;
+                                        profit = bsstatsbase._return.eth_profit;
+                                        wagered = bsstatsbase._return.eth_wagered; break;
+                                    case "burst":
+                                        balance = bsstatsbase._return.burst_balance;
+                                        profit = bsstatsbase._return.burst_profit;
+                                        wagered = bsstatsbase._return.burst_wagered; break;
+                                }
+                                bets = int.Parse(bsstatsbase._return.bets);
+                                wins = int.Parse(bsstatsbase._return.wins);
+                                losses = int.Parse(bsstatsbase._return.losses);
+
+                                MessagingCenter.Send(this, "updateBalance", balance);
+                                MessagingCenter.Send(this, "updateBets", bets);
+                                MessagingCenter.Send(this, "updateLosses", losses);
+                                MessagingCenter.Send(this, "updateProfit", profit);
+                                MessagingCenter.Send(this, "updateWagered", wagered);
+                                MessagingCenter.Send(this, "updateWins", wins);
+                            }
+                            else
+                            {
+                                if (bsstatsbase._return.value != null)
+                                {
+                                    MessagingCenter.Send(this, "updateStatus", bsstatsbase._return.value);
+                                }
+                            }
+                }
+                catch { }
+            }
+        }
+
         public override async Task<bool> Login(string User, string Password, string twofa)
         {
             bool result = false;

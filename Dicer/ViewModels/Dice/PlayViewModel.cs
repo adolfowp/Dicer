@@ -176,7 +176,10 @@ namespace Dicer
         public string Currency
         {
             get { return _site.Currency; }
+            set { _site.Currency = value; }
         }
+
+        public string[] Currencies => _site.Currencies;
 
         public decimal LowText
         {
