@@ -17,19 +17,16 @@
         </Grid.RowDefinitions>
 
         <!--  Head info -->
-        <StackLayout Grid.ColumnSpan = "2">
-            <Label FontSize = "Small" Grid.ColumnSpan = "2"
-                HorizontalTextAlignment = "Center" Text = "Amount" />
-            <StackLayout Grid.Row = "1" Grid.ColumnSpan = "2" 
-                HorizontalOptions = "Center"
-                Orientation = "Horizontal" >
-                <Label FontSize = "Large" FontAttributes = "Bold"
-                    Text = "{Binding Amount, StringFormat='{0:0.00000000}'}" VerticalTextAlignment = "End" />
-                <Picker ItemsSource="{Binding Currencies}" SelectedItem="{Binding Currency}" WidthRequest="80"/>
-                <!--<Label FontSize = "Medium" VerticalTextAlignment = "Center"
+        <Grid Grid.ColumnSpan = "2" 
+                HorizontalOptions = "Center">
+
+            <Grid.ColumnDefinitions
+            <Label FontSize = "Large" FontAttributes = "Bold"
+                    Text = "{Binding Amount, StringFormat='Amount {0:0.00000000}'}" VerticalTextAlignment = "End" />
+            <Picker ItemsSource="{Binding Currencies}" SelectedItem="{Binding Currency}" WidthRequest="80"/>
+            <!--<Label FontSize = "Medium" VerticalTextAlignment = "Center"
                     Text = "{Binding Currency}" />-->
-            </StackLayout>
-        </StackLayout>
+        </Grid>
 
         <!-- Bet Setting -->
         <Label Grid.Row = "1" Text = "Bet Amount: " Margin = "0, 0, 20, 0"
