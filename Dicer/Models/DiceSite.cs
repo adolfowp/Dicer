@@ -101,16 +101,16 @@ namespace Dicer
 			//Parent.GetBetResult(balance, newBet);
 
 		}
-		protected abstract Task internalPlaceBet(bool High, decimal amount, decimal chance);
+		protected abstract Task<bool> internalPlaceBet(bool High, decimal amount, decimal chance);
         #endregion
 
         #region Publics
         public abstract Task<bool> Login(string User, string Password, string twofa);
-        public async Task PlaceBet(bool High, decimal amount, decimal chance)
+        public async Task<bool> PlaceBet(bool High, decimal amount, decimal chance)
 		{
             var param = string.Format("Betting: {0:0.00000000} at {1:0.00000000} {2}", amount, chance, High ? "High" : "Low");
             MessagingCenter.Send<DiceSite, string>(this, "updateStatus", param);
-			await internalPlaceBet(High, amount, chance);
+			return await internalPlaceBet(High, amount, chance);
 		}
 		public abstract void ResetSeed();
 		public abstract void SetClientSeed(string Seed);

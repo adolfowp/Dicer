@@ -283,7 +283,7 @@ namespace Dicer
             return result;
         }
 
-        protected override Task internalPlaceBet(bool High, decimal amount, decimal chance)
+        protected override Task<bool> internalPlaceBet(bool High, decimal amount, decimal chance)
         {
             throw new NotImplementedException();
         }

@@ -9,5 +9,9 @@ namespace Dicer.ViewModels.Dice
         public AutomaticPlayViewModel(DiceSite Site) : base(Site)
         {
         }
+
+        #region Properties
+
+        #endregion
     }
 }

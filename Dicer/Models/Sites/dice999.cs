@@ -277,7 +277,7 @@ namespace Dicer
 
 		int retrycount = 0;
 		string next = "";
-        async Task PlaceBetThread(object _High)
+        async Task<bool> PlaceBetThread(object _High)
 		{
 
 			string err = "";
@@ -318,8 +318,8 @@ namespace Dicer
 						{
 							if (e.InnerException.Message.Contains("ssl"))
 							{
-								await PlaceBetThread(High);
-								return;
+								return await PlaceBetThread(High);
+								//return;
 							}
 						}
 					}
@@ -329,8 +329,8 @@ namespace Dicer
 						{
 
 							Thread.Sleep(200);
-							await PlaceBetThread(High);
-							return;
+							return await PlaceBetThread(High);
+							//return;
 						}
 						else
 							throw new Exception();
@@ -365,13 +365,11 @@ namespace Dicer
 						//Parent.DumpLog(e.InnerException.Message, 0);
 						if (retrycount++ < 3)
 						{
-							await PlaceBetThread(High);
-							return;
+                            return await PlaceBetThread(High);							
 						}
 						if (e.InnerException.Message.Contains("ssl"))
 						{
-							await PlaceBetThread(High);
-							return;
+                            return await PlaceBetThread(High);
 						}
 						else
 						{
@@ -446,6 +444,8 @@ namespace Dicer
 					next = tmpBet.Next;
 					retrycount = 0;
 					FinishedBet(tmp);
+
+                    return win;
 				}
 			}
 			catch
@@ -455,12 +455,14 @@ namespace Dicer
 				else
                     MessagingCenter.Send<DiceSite, string>(this, "updateStatus", "Something went wrong! stopped betting");
 			}
+
+            return false;
 		}
 
-        protected override async Task internalPlaceBet(bool High, decimal amount, decimal chance)
+        protected override async Task<bool> internalPlaceBet(bool High, decimal amount, decimal chance)
         {
 			this.High = High;
-            await PlaceBetThread(new PlaceBetObj(High, amount, chance));
+            var ret = await PlaceBetThread(new PlaceBetObj(High, amount, chance));
 
 			MessagingCenter.Send<DiceSite, decimal>(this, "updateBalance", (decimal)balance);
             MessagingCenter.Send<DiceSite, long>(this, "updateBets", bets);
@@ -468,6 +470,8 @@ namespace Dicer
 			MessagingCenter.Send<DiceSite, decimal>(this, "updateProfit", profit);
             MessagingCenter.Send<DiceSite, long>(this, "updateWins", wins);
             MessagingCenter.Send<DiceSite, long>(this, "updateLosses", losses);
+
+            return ret;
         }
 
         public override void ResetSeed()

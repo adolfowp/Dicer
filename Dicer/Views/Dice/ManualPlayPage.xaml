@@ -21,7 +21,7 @@
                 HorizontalOptions = "Center">
 
             <Label FontSize = "Large" FontAttributes = "Bold"
-                    Text = "{Binding Amount, StringFormat='Amount {0:0.00000000}'}" VerticalTextAlignment = "End" />
+                    Text = "{Binding Amount, StringFormat='Amount: {0:0.00000000}'}" VerticalTextAlignment = "End" />
             <Picker ItemsSource="{Binding Currencies}" SelectedItem="{Binding Currency}" WidthRequest="80"/>
             <!--<Label FontSize = "Medium" VerticalTextAlignment = "Center"
                     Text = "{Binding Currency}" />-->

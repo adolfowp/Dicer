@@ -20,9 +20,9 @@ namespace Dicer
         public AutomaticPlayPage(DiceSite Site)
             : this()
         {
-            BindingContext = viewmodel = new PlayViewModel(Site);
+            BindingContext = viewmodel = new MartingaleViewModel(Site);
 
             viewmodel.Title = _titleText;
         }
-}
+    }
 }

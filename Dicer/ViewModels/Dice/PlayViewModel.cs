@@ -146,7 +146,7 @@ namespace Dicer
                 SetProperty(ref _betChance, value,
                              onChanged: () =>
                   {
-                      BetMultiplier = (1.0m / (_betChance / 100m));
+                      BetMultiplier = (100.0m / _betChance);
                       OnPropertyChanged(nameof(HighText));
                       OnPropertyChanged(nameof(LowText));
                   });

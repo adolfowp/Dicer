@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Dicer
 {
-    public class MartingaleViewModel : PlayViewModel, IAutomationRunner
+    public class MartingaleViewModel : PlayViewModel
     {
         #region Fields
         decimal _baseBalance;
@@ -35,8 +35,14 @@ namespace Dicer
             StartCommand = new Command(async () => 
             {
                 stop = false;
-                await Run(_site);  
+                if (_onLose == 0)
+                    _onLose = (BetMultiplier / (BetMultiplier - 1)) * 1.05m;
+
+                Strategy = new Martingale(starthigh, BetMultiplier, _onLose, _startingBet);
+                await Strategy.Run(_site);  
             });
+
+            StopCommand = new Command(() => Strategy.Stop());
 
             Title = "Martingale";
         }
@@ -47,6 +53,8 @@ namespace Dicer
             get { return _baseBalance; }
             set { SetProperty(ref _baseBalance, value); }
         }
+
+        protected IAutomationRunner Strategy { get; set; }
 
         public ICommand StartCommand { get; private set; }
         public ICommand StopCommand { get; private set; }
@@ -114,18 +122,7 @@ namespace Dicer
 		#endregion
 
 		#region Methods
-		public async Task<int> Run(DiceSite Site)
-		{
-            if (LimitOnLossesEnabled && Site.profit < 0)
-				return 0;
-
-			if (stoponwin)
-			{
-
-			}
-
-			return await Task<int>.FromResult(0);
-		}
+		
 
         #endregion
     }
