@@ -1,54 +1,43 @@
 ﻿using System;
-
+using Dicer.MasterDetail;
 using Xamarin.Forms;
 
 namespace Dicer
 {
-    public class MainPage : TabbedPage
+    public class MainPage : MasterDetailPage
     {
-        public MainPage()
+        MasterPage masterPage;
+        DiceSite site;
+
+        public MainPage(DiceSite connectedSite)
         {
-            Page itemsPage, aboutPage = null;
+            site = connectedSite;
 
-            switch (Device.RuntimePlatform)
+            masterPage = new MasterPage();
+            Master = masterPage;
+            Detail = new NavigationPage(new ManualPlayPage(site));
+
+            masterPage.ListView.ItemSelected += OnItemSelected;
+
+            if(Device.RuntimePlatform == Device.Windows)
             {
-                case Device.iOS:
-                    itemsPage = new AccountsPage()
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new AboutPage()
-                    {
-                        Title = "About"
-                    };
-                    itemsPage.Icon = "tab_feed.png";
-                    aboutPage.Icon = "tab_about.png";
-                    break;
-                default:
-                    itemsPage = new AccountsPage()
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new AboutPage()
-                    {
-                        Title = "About"
-                    };
-                    break;
+                MasterBehavior = MasterBehavior.Popover;
             }
-
-            Children.Add(itemsPage);
-            Children.Add(aboutPage);
-
-
-            Title = Children[0].Title;
         }
 
-        protected override void OnCurrentPageChanged()
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            base.OnCurrentPageChanged();
-            Title = CurrentPage?.Title ?? string.Empty;
+            var item = e.SelectedItem as MasterPageItem;
+            if(item != null)
+            {
+                Detail = new NavigationPage((Page)Activator
+                                            .CreateInstance(
+                                                type: item.TargetType, 
+                                                args: new object[] { site }));
+                
+                masterPage.ListView.SelectedItem = null;
+                IsPresented = false;
+            }
         }
     }
 }

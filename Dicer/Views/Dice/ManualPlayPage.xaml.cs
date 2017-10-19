@@ -25,9 +25,8 @@ namespace Dicer
         public ManualPlayPage(DiceSite Site)
             : this()
         {
-            BindingContext = viewmodel = new MartingaleViewModel(Site);
+            BindingContext = viewmodel = new PlayViewModel(Site);
             viewmodel.Title = _titleText;
-
         }
 		#endregion
 

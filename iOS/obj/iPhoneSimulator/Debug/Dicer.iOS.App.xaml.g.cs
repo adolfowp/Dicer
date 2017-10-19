@@ -11,7 +11,7 @@
 namespace Dicer {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/adolfolombardi/Projects/Dicer/Dicer/App.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/Dicer/App.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

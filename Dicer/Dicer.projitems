@@ -70,6 +70,19 @@
       <DependentUpon>MartingalePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Data Templates\SwitchableEntryCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Data Templates\MasterPageItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\MasterPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\BetSettingsPage.xaml.cs">
+      <DependentUpon>BetSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\DisconnectPage.xaml.cs">
+      <DependentUpon>DisconnectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\FaucetPage.xaml.cs">
+      <DependentUpon>FaucetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\BaseDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DisconnectViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
@@ -90,6 +103,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Dice\MartingalePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\BetSettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\DisconnectPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\FaucetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

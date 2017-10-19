@@ -19,7 +19,7 @@ namespace Dicer
                 DependencyService.Register<CloudDataStore>();
 
 
-                MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new AccountsPage());
         }
     }
 }

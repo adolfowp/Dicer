@@ -19,12 +19,15 @@ namespace Dicer
 			MessagingCenter.Subscribe<LoginViewModel, DiceSite>(this, "AddAccount", (obj, item) =>
 			{
 				var _item = item as DiceSite;
-                Device.BeginInvokeOnMainThread(async () => 
-                               await Navigation.PushAsync(new PlayPage(item)));
+                if (_item != null)
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                                                   await Navigation.PushModalAsync(new MainPage(_item)));
+                }
 			});
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as Item;
             if (item == null)

@@ -11,7 +11,8 @@
 namespace Dicer {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/adolfolombardi/Projects/Dicer/Dicer/Views/Dice/MartingalePage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/Dicer/Views/Dice/M" +
+        "artingalePage.xaml")]
     public partial class MartingalePage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:Dicer"
+    x:Class="Dicer.DisconnectPage">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand">
+
+            <Label FontSize="28" Margin="0, 60"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+            Text="Want to make any donation before disconnect?" />
+
+            <Label Text="{Binding DonationPercentage, StringFormat='Amount {0:0.00}%'}"
+                HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                FontSize="Large"/>
+            <Stepper HorizontalOptions="Center" Value="{Binding DonationPercentage}"
+            Minimum="0.1" Maximum="20" Increment="0.1"/> 
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center"
+                Margin="0, 80">
+                <Button Text="Donate" BackgroundColor="{StaticResource Primary}"
+                TextColor="White" WidthRequest="100" Margin="10"/>
+                <Button Text="No, thanks." Margin="10" />
+            </StackLayout>
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

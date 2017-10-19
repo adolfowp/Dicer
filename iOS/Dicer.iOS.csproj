@@ -133,6 +133,24 @@
     <BundleResource Include="Resources\dice.png" />
     <BundleResource Include="Resources\dice%402x.png" />
     <BundleResource Include="Resources\dice%403x.png" />
+    <BundleResource Include="Resources\ic_play_circle_filled_2x.png" />
+    <BundleResource Include="Resources\ic_play_circle_filled_3x.png" />
+    <BundleResource Include="Resources\ic_play_circle_filled.png" />
+    <BundleResource Include="Resources\ic_format_paint_2x.png" />
+    <BundleResource Include="Resources\ic_format_paint_3x.png" />
+    <BundleResource Include="Resources\ic_format_paint.png" />
+    <BundleResource Include="Resources\ic_add_circle_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_add_circle_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_add_circle_48pt.png" />
+    <BundleResource Include="Resources\ic_power_settings_new_2x.png" />
+    <BundleResource Include="Resources\ic_power_settings_new_3x.png" />
+    <BundleResource Include="Resources\ic_power_settings_new.png" />
+    <BundleResource Include="Resources\ic_settings_2x.png" />
+    <BundleResource Include="Resources\ic_settings_3x.png" />
+    <BundleResource Include="Resources\ic_settings.png" />
+    <BundleResource Include="Resources\ic_monetization_on_2x.png" />
+    <BundleResource Include="Resources\ic_monetization_on_3x.png" />
+    <BundleResource Include="Resources\ic_monetization_on.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />
