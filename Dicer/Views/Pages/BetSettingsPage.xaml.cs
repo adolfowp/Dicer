@@ -7,7 +7,9 @@ namespace Dicer
 {
     public partial class BetSettingsPage : ContentPage
     {
-        public BetSettingsPage()
+
+
+        public BetSettingsPage(DiceSite Site)
         {
             InitializeComponent();
         }

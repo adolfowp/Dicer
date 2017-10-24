@@ -9,6 +9,8 @@
     <Import_RootNamespace>Dicer</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AutomatedBetDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AutomatedBetSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Strategies\Martingale.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />
@@ -117,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
-    <Folder Include="$(MSBuildThisFileDirectory)templates\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Sites\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Dice\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Pages\" />
