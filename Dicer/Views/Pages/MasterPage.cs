@@ -26,14 +26,14 @@ namespace Dicer.MasterDetail
             {
                 Title = "Automatic Strategy",
                 IconSource = "ic_play_circle_filled",
-                TargetType = typeof(AutomaticPlayPage),
-            });
-            masterPageItems.Add(new MasterPageItem
-            {
-                Title = "Bet Settings",
-                IconSource = "ic_settings",
                 TargetType = typeof(BetSettingsPage),
             });
+            //masterPageItems.Add(new MasterPageItem
+            //{
+            //    Title = "Bet Settings",
+            //    IconSource = "ic_settings",
+            //    TargetType = typeof(BetSettingsPage),
+            //});
             masterPageItems.Add(new MasterPageItem
             {
                 Title = "Earn Faucet",

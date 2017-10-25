@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
     x:Class="Dicer.BetSettingsPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TableView Intent="Settings" HasUnevenRows="true">
+            <TableSection Title="Main Bet Settings">
+                <EntryCell Label="Base Bet" 
+                    Text="{Binding BaseBet, StringFormat='{0:0.00000000}'}" 
+                    HorizontalTextAlignment="End" Keyboard="Numeric" />
+                <EntryCell Label="Bet Odds" 
+                    Text="{Binding BetOdds, StringFormat='{0:0.00}'}" 
+                    HorizontalTextAlignment="End" Keyboard="Numeric" />
+                <EntryCell Label="Rolls" 
+                    Text="{Binding Rolls, StringFormat='{0:N}'}" 
+                    HorizontalTextAlignment="End" Keyboard="Numeric" />
+            </TableSection>
+            <TableSection Title="Bet On">
+                <ViewCell>
+                    <StackLayout Orientation="Vertical">
+                        <controls:CheckBox Text="High" HeightRequest="40"
+                        Checked="{Binding MustBetHigh}" />
+                    <controls:CheckBox Text="Low" HeightRequest="40"
+                        Checked="{Binding MustBetLow}" />
+                    <controls:CheckBox Text="Alternate" HeightRequest="40"
+                        Checked="{Binding MustBetAlternate}" />
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Stop Betting After">
+                
+            </TableSection>
+            <TableSection Title="On Win">
+                
+            </TableSection>
+            <TableSection Title="On Lose">
+                
+            </TableSection>
+        </TableView>
+
+        <Button Grid.Row="1" FontSize="Large" Text="Start"/>
+    </Grid>
 </ContentPage>

@@ -1,26 +1,27 @@
 ﻿<Properties StartupConfiguration="{3D3F86B3-1F69-4E0E-8815-F31143E30125}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Stato di Dicer.git">
     <Files>
-      <File FileName="Dicer/Views/Pages/MasterPage.cs" Line="41" Column="49" />
-      <File FileName="Dicer/Views/Pages/DisconnectPage.xaml" Line="19" Column="32" />
-      <File FileName="Dicer/ViewModels/DisconnectViewModel.cs" Line="17" Column="19" />
-      <File FileName="Dicer/Views/Pages/DisconnectPage.xaml.cs" Line="15" Column="26" />
-      <File FileName="Dicer/Views/Pages/AccountsPage.xaml.cs" Line="21" Column="1" />
-      <File FileName="Dicer/Views/Pages/MainPage.cs" Line="33" Column="1" />
-      <File FileName="Dicer/Views/Pages/BaseDetailPage.cs" Line="7" Column="18" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="Dicer/App.xaml" Line="5" Column="25" />
+      <File FileName="Dicer/Models/AutomatedBetSettings.cs" Line="104" Column="37" />
+      <File FileName="Dicer/Views/Pages/BetSettingsPage.xaml" Line="50" Column="1" />
+      <File FileName="Dicer/Views/Pages/BetSettingsPage.xaml.cs" Line="11" Column="71" />
+      <File FileName="Dicer/Models/AutomatedBetDefinition.cs" Line="1" Column="1" />
+      <File FileName="Dicer/Views/Pages/MasterPage.cs" Line="31" Column="15" />
+      <File FileName="Dicer/App.xaml.cs" Line="22" Column="1" />
+      <File FileName="Dicer/Views/Pages/MainPage.cs" Line="30" Column="57" />
+      <File FileName="iOS/AppDelegate.cs" Line="15" Column="22" />
+      <File FileName="Droid/MainActivity.cs" Line="24" Column="19" />
       <File FileName="Stato di Dicer.git" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/Dicer/Models/Sites/Bitsler.cs" relfile="Dicer/Models/Sites/Bitsler.cs" line="225" column="1" />
+      <Breakpoint file="/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/Dicer/Models/Sites/Bitsler.cs" relfile="Dicer/Models/Sites/Bitsler.cs" line="229" column="1" />
+      <Breakpoint file="/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/Dicer/Views/Data Templates/SwitchableEntryCell.cs" relfile="Dicer/Views/Data Templates/SwitchableEntryCell.cs" line="114" column="1" />
+      <Breakpoint file="/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/Dicer/Models/AutomatedBetSettings.cs" relfile="Dicer/Models/AutomatedBetSettings.cs" line="64" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Dicer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7F9FB638-5E0D-4372-B91D-25F3EA17DFA1" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Dicer.Droid PreferredExecutionTarget="Android.NexusTablet" />
 </Properties>

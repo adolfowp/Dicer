@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using AsNum.XFControls.iOS;
 using Foundation;
 using UIKit;
 
@@ -12,9 +12,9 @@ namespace Dicer.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            AsNumAssemblyHelper.HoldAssembly();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
 
 
             return base.FinishedLaunching(app, options);
