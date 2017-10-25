@@ -1,7 +1,6 @@
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Dicer.iOS.exe
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Dicer.iOS.pdb
-/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/AsNum.XFControls.dll
-/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/AsNum.XFControls.iOS.dll
+/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/ExifLib.dll
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Plugin.Connectivity.Abstractions.dll
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Plugin.Connectivity.dll
@@ -23,8 +22,6 @@
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.xml
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.DataGrid.pdb
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.DataGrid.dll.mdb
-/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/AsNum.XFControls.xml
-/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/AsNum.XFControls.iOS.xml
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/ar/Xamarin.Forms.Platform.iOS.resources.dll
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/ca/Xamarin.Forms.Platform.iOS.resources.dll
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/bin/iPhoneSimulator/Debug/cs/Xamarin.Forms.Platform.iOS.resources.dll
@@ -93,6 +90,7 @@
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.0.1/optimized/ic_monetization_on_3x.png
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.0.1/optimized/ic_monetization_on.png
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.0.1/optimized/
+/Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/obj/iPhoneSimulator/Debug/Dicer.iOS.csprojResolveAssemblyReference.cache
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/obj/iPhoneSimulator/Debug/Dicer.iOS.csproj.CoreCompileInputs.cache
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/obj/iPhoneSimulator/Debug/Dicer.iOS.App.xaml.g.cs
 /Users/adolfolombardi/Projects/Dicer GitHub/adolfowp/Dicer.git/iOS/obj/iPhoneSimulator/Debug/Dicer.iOS.Views.Dice.ManualPlayPage.xaml.g.cs
