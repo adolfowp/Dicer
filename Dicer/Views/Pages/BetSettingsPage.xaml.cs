@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Dicer.Models;
 using Xamarin.Forms;
-using Xlabs.Forms.Controls;
 
 namespace Dicer
 {
