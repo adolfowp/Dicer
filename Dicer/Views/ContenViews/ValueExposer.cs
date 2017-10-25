@@ -118,7 +118,7 @@ namespace Dicer
         #endregion
 
         #region Bindable properties
-        public readonly BindableProperty ValueProperty = BindableProperty.Create(
+        public static readonly BindableProperty ValueProperty = BindableProperty.Create(
             propertyName: nameof(Value),
             returnType: typeof(decimal),
             declaringType: typeof(ValueExposer));
@@ -129,12 +129,12 @@ namespace Dicer
         //    declaringType: typeof(ValueExposer),
         //    propertyChanged: ImagePropertyChanged);
 
-        public readonly BindableProperty TitleProperty = BindableProperty.Create(
+        public static readonly BindableProperty TitleProperty = BindableProperty.Create(
             propertyName: nameof(Title),
             returnType: typeof(string),
             declaringType: typeof(ValueExposer));
 
-        public readonly BindableProperty TitleColorProperty = BindableProperty.Create(
+        public static readonly BindableProperty TitleColorProperty = BindableProperty.Create(
             propertyName: nameof(TitleColor),
             returnType: typeof(Color),
             declaringType: typeof(ValueExposer),

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+    xmlns:views="clr-namespace:Dicer.Views"
     x:Class="Dicer.BetSettingsPage">
 	<Grid>
         <Grid.RowDefinitions>
@@ -9,7 +9,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TableView Intent="Settings" HasUnevenRows="true">
+        <TableView Intent="Settings" HasUnevenRows="true" RowHeight="58">
             <TableSection Title="Main Bet Settings">
                 <EntryCell Label="Base Bet" 
                     Text="{Binding BaseBet, StringFormat='{0:0.00000000}'}" 
@@ -23,14 +23,13 @@
             </TableSection>
             <TableSection Title="Bet On">
                 <ViewCell>
-                    <StackLayout Orientation="Vertical">
-                        <controls:CheckBox Text="High" HeightRequest="40"
-                        Checked="{Binding MustBetHigh}" />
-                    <controls:CheckBox Text="Low" HeightRequest="40"
-                        Checked="{Binding MustBetLow}" />
-                    <controls:CheckBox Text="Alternate" HeightRequest="40"
-                        Checked="{Binding MustBetAlternate}" />
-                    </StackLayout>
+                    <views:CheckBox Text="High" IsChecked="{Binding MustBetHigh}"/>
+                </ViewCell>
+                <ViewCell>
+                    <views:CheckBox Text="Low" IsChecked="{Binding MustBetLow}"/>
+                </ViewCell>
+                <ViewCell>
+                    <views:CheckBox Text="Alternate" IsChecked="{Binding MustBetAlternate}"/>
                 </ViewCell>
             </TableSection>
             <TableSection Title="Stop Betting After">

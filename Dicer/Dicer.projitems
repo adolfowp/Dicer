@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\BaseDetailPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DisconnectViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ContenViews\CheckBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />

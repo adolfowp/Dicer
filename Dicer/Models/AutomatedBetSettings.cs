@@ -12,7 +12,7 @@ namespace Dicer.Models
         private int _Rolls = 0;
 
         private BetOnEnum _BetOn = BetOnEnum.Alternate;
-        private bool _MustBetHigh;
+        private bool _MustBetHigh = true;
         private bool _MustBetLow;
         private bool _MustBetAlternate;
 
