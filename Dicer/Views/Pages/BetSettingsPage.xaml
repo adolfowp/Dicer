@@ -11,14 +11,14 @@
 
         <TableView Intent="Settings" HasUnevenRows="true" RowHeight="58">
             <TableSection Title="Main Bet Settings">
-                <EntryCell Label="Base Bet" 
-                    Text="{Binding BaseBet, StringFormat='{0:0.00000000}'}" 
+                <EntryCell x:Name="BaseBetEntry" Label="Base Bet" 
+                    Text="{Binding BaseBet}"
+                    HorizontalTextAlignment="End" Keyboard="Numeric"/>
+                <EntryCell x:Name="BetOddsEntry" Label="Bet Odds" 
+                    Text="{Binding BetOdds}" 
                     HorizontalTextAlignment="End" Keyboard="Numeric" />
-                <EntryCell Label="Bet Odds" 
-                    Text="{Binding BetOdds, StringFormat='{0:0.00}'}" 
-                    HorizontalTextAlignment="End" Keyboard="Numeric" />
-                <EntryCell Label="Rolls" 
-                    Text="{Binding Rolls, StringFormat='{0:N}'}" 
+                <EntryCell x:Name="RollsEntry" Label="Rolls" 
+                    Text="{Binding Rolls}" 
                     HorizontalTextAlignment="End" Keyboard="Numeric" />
             </TableSection>
             <TableSection Title="Bet On">
@@ -33,16 +33,31 @@
                 </ViewCell>
             </TableSection>
             <TableSection Title="Stop Betting After">
-                
+                <views:SwitchableEntryCell Text="Stop On Win" IsChecked="{Binding ShouldStopOnProfit}"
+                                           Value="{Binding StopOnProfit}"/>
+                <views:SwitchableEntryCell Text="Stop On Loss" IsChecked="{Binding ShouldStopOnLoss}"
+                                           Value="{Binding StopOnLoss}"/>
             </TableSection>
             <TableSection Title="On Win">
-                
+                <ViewCell>
+                    <views:CheckBox Text="Return to base" IsChecked="{Binding ReturnToBase_OnWin}"/>
+                </ViewCell>
+                <views:SwitchableEntryCell Text="Inrcrease bet by" IsChecked="{Binding IncreaseBet_OnWin}"
+                                           Value="{Binding IncreaseAmount_OnWin}"/>
+                <views:SwitchableEntryCell Text="Change odds" IsChecked="{Binding ChangeOdds_OnWin}"
+                                           Value="{Binding ChangeOdd_OnWin}"/>
             </TableSection>
             <TableSection Title="On Lose">
-                
+                <ViewCell>
+                    <views:CheckBox Text="Return to base" IsChecked="{Binding ReturnToBase_OnLose}"/>
+                </ViewCell>
+                <views:SwitchableEntryCell Text="Inrcrease bet by" IsChecked="{Binding IncreaseBet_OnLose}"
+                                           Value="{Binding IncreaseAmount_OnLose}"/>
+                <views:SwitchableEntryCell Text="Change odds" IsChecked="{Binding ChangeOdds_OnLose}"
+                                           Value="{Binding ChangeOdd_OnLose}"/>
             </TableSection>
         </TableView>
 
-        <Button Grid.Row="1" FontSize="Large" Text="Start"/>
+        <Button Grid.Row="1" FontSize="Large" Text="Start" Clicked="OnStartClicked"/>
     </Grid>
 </ContentPage>

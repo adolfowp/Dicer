@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace Dicer.Views.DataTemplates
+namespace Dicer.Views
 {
     public class SwitchableEntryCell : ViewCell
     {
@@ -23,11 +23,18 @@ namespace Dicer.Views.DataTemplates
             valueEntry = new Entry
             {
                 HorizontalTextAlignment = TextAlignment.End,
-                HorizontalOptions = LayoutOptions.End,
+                HorizontalOptions = LayoutOptions.Fill,
             };
             #endregion
 
-            var mainLayout = new Grid();
+            var mainLayout = new Grid
+            {
+                ColumnDefinitions = new ColumnDefinitionCollection
+                {
+                    new ColumnDefinition { Width = GridLength.Star },
+                    new ColumnDefinition { Width = GridLength.Star },
+                }
+            };
             mainLayout.Children.Add(enabler, 0, 0);
             mainLayout.Children.Add(valueEntry, 1, 0);
 
@@ -48,7 +55,15 @@ namespace Dicer.Views.DataTemplates
                 propertyName: nameof(Value),
                 returnType: typeof(decimal),
                 declaringType: typeof(SwitchableEntryCell),
-                defaultValue: string.Empty,
+                defaultValue: 0m,
+                propertyChanged: OnValuePropertyChanged);
+
+        public static readonly BindableProperty IsCheckedProperty =
+            BindableProperty.Create(
+                propertyName: nameof(Value),
+                returnType: typeof(bool),
+                declaringType: typeof(SwitchableEntryCell),
+                defaultValue: false,
                 propertyChanged: OnValuePropertyChanged);
         #endregion
 
@@ -63,6 +78,12 @@ namespace Dicer.Views.DataTemplates
         {
             get { return (decimal)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
+        }
+
+        public bool IsChecked
+        {
+            get { return (bool)GetValue(IsCheckedProperty); }
+            set { SetValue(IsCheckedProperty, value); }
         }
         #endregion
 
@@ -79,6 +100,13 @@ namespace Dicer.Views.DataTemplates
         {
             var control = bindable as SwitchableEntryCell;
             control.valueEntry.Text = newValue.ToString();
+        }
+
+        static void OnIsCheckedPropertyChanged(BindableObject bindable,
+                                            object oldValue, object newValue)
+        {
+            var control = bindable as SwitchableEntryCell;
+            control.enabler.IsChecked = (bool)newValue;
         }
         #endregion
     }

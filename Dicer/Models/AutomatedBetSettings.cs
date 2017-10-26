@@ -4,11 +4,12 @@ using System.Text;
 
 namespace Dicer.Models
 {
-    class AutomatedBetSettings : BaseViewModel
+    public class AutomatedBetSettings : BaseViewModel
     {
         #region Fields
         private decimal _BaseBet = 0.00000001m;
         private decimal _BetOdds = 2.00m;
+        private decimal _Chance = 49.95m;
         private int _Rolls = 0;
 
         private BetOnEnum _BetOn = BetOnEnum.Alternate;
@@ -27,10 +28,16 @@ namespace Dicer.Models
         private bool _IncreaseBet_OnWin;
         private bool _ChangeOdds_OnWin;
 
+        private decimal _IncreaseAmount_OnWin;
+        private decimal _NewOdd_OnWin;
+
         // On Lose options
         private bool _ReturnToBase_OnLose = true;
         private bool _IncreaseBet_OnLose;
         private bool _ChangeOdds_OnLose;
+
+        private decimal _IncreaseAmount_OnLose;
+        private decimal _NewOdd_OnLose;
         #endregion
 
         #region Properties
@@ -42,7 +49,27 @@ namespace Dicer.Models
         public decimal BetOdds
         {
             get { return _BetOdds; }
-            set { SetProperty(ref _BetOdds, value); }
+            set
+            {
+                SetProperty(ref _BetOdds, value,
+                    onChanged: () =>
+                    {
+                        SetProperty(ref _Chance, (1 / value) * 0.99m);
+                    });
+            }
+        }
+
+        public decimal Chance
+        {
+            get { return _Chance; }
+            set
+            {
+                SetProperty(ref _Chance, value,
+                    onChanged: () =>
+                    {
+                        SetProperty(ref _BetOdds, (1 / value) * 0.99m);
+                    });
+            }
         }
         public int Rolls
         {
@@ -161,6 +188,17 @@ namespace Dicer.Models
             }
         }
 
+        public decimal IncreaseAmount_OnWin
+        {
+            get { return _IncreaseAmount_OnWin; }
+            set { SetProperty(ref _IncreaseAmount_OnWin, value); }
+        }
+        public decimal ChangeOdd_OnWin
+        {
+            get { return _NewOdd_OnWin; }
+            set { SetProperty(ref _NewOdd_OnWin, value); }
+        }
+
         public BetResultAction BetAction_OnLose { get; set; }
         public bool ReturnToBase_OnLose
         {
@@ -192,6 +230,18 @@ namespace Dicer.Models
                             UpdateBetActionOnLose(BetResultAction.ChangeOdds)); 
             }
         }
+
+        public decimal IncreaseAmount_OnLose
+        {
+            get { return _IncreaseAmount_OnWin; }
+            set { SetProperty(ref _IncreaseAmount_OnWin, value); }
+        }
+        public decimal ChangeOdd_OnLose
+        {
+            get { return _NewOdd_OnLose; }
+            set { SetProperty(ref _NewOdd_OnLose, value); }
+        }
+
         #endregion
 
         #region Methods

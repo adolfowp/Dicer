@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Globalization;
 using Xamarin.Forms;
 
 namespace Dicer
@@ -17,6 +17,8 @@ namespace Dicer
                 DependencyService.Register<DiceFileDataStore>();
             else
                 DependencyService.Register<CloudDataStore>();
+
+            CultureInfo.CurrentUICulture = CultureInfo.InvariantCulture;
 
 
             MainPage = new NavigationPage(new AccountsPage());

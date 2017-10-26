@@ -5,14 +5,14 @@ using System.Text;
 namespace Dicer.Models
 {
     [Flags]
-    enum BetResultAction : int
+    public enum BetResultAction : int
     {
         ReturnToBase = 1,
         Increase = 2,
         ChangeOdds = 4,
     }
 
-    enum BetOnEnum
+    public enum BetOnEnum
     {
         High,
         Low,

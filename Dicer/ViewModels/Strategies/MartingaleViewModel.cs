@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dicer.Models;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -29,7 +30,7 @@ namespace Dicer
         private bool _isIncrementOnWinEnabled = false;
         #endregion
 
-        public MartingaleViewModel(DiceSite Site)
+        public MartingaleViewModel(DiceSite Site, AutomatedBetSettings settings)
             : base(Site)
         {
             StartCommand = new Command(async () => 
@@ -38,7 +39,7 @@ namespace Dicer
                 if (_onLose == 0)
                     _onLose = (BetMultiplier / (BetMultiplier - 1)) * 1.05m;
 
-                Strategy = new Martingale(starthigh, BetMultiplier, _onLose, _startingBet);
+                Strategy = new Martingale(settings);
                 await Strategy.Run(_site);  
             });
 

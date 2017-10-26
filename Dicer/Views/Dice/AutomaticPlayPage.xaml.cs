@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dicer.Models;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -12,15 +13,15 @@ namespace Dicer
         const string _titleText = "Automatic";
         #endregion
 
-        public AutomaticPlayPage()
+        protected AutomaticPlayPage()
         {
             InitializeComponent();
         }
 
-        public AutomaticPlayPage(DiceSite Site)
+        public AutomaticPlayPage(DiceSite Site, AutomatedBetSettings settings)
             : this()
         {
-            BindingContext = viewmodel = new MartingaleViewModel(Site);
+            BindingContext = viewmodel = new MartingaleViewModel(Site, settings);
 
             viewmodel.Title = _titleText;
         }
