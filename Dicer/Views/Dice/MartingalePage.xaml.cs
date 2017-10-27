@@ -17,7 +17,7 @@ namespace Dicer
         public MartingalePage(DiceSite Site)
             : this()
         {
-            BindingContext = viewmodel = new MartingaleViewModel(Site);
+            //BindingContext = viewmodel = new MartingaleViewModel(Site);
         }
     }
 }

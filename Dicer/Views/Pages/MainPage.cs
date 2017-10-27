@@ -19,7 +19,7 @@ namespace Dicer
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 
-            if(Device.RuntimePlatform == Device.Windows)
+            if(Device.RuntimePlatform == Device.UWP)
             {
                 MasterBehavior = MasterBehavior.Popover;
             }

@@ -43,7 +43,7 @@ namespace Dicer
                     }
                     if (_settings.BetAction_OnLose == BetResultAction.ChangeOdds)
                     {
-                        _settings.BetOdds = _settings.ChangeOdd_OnLose;
+                        _settings.BetOdds = _settings.NewOdd_OnLose;
                     }
                 }
                 else
@@ -59,7 +59,7 @@ namespace Dicer
                     }
                     if (_settings.BetAction_OnWin == BetResultAction.ChangeOdds)
                     {
-                        _settings.BetOdds = _settings.ChangeOdd_OnWin;
+                        _settings.BetOdds = _settings.NewOdd_OnWin;
                     }
                 }
 

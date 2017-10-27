@@ -17,6 +17,8 @@ namespace Dicer.Views
             {
                 HorizontalOptions = LayoutOptions.Start,
             };
+            //enabler.SetBinding(CheckBox.IsCheckedProperty, nameof(IsChecked));
+            //enabler.SetBinding(CheckBox.TextProperty, nameof(Text));
 
             #endregion
             #region Value Entry
@@ -25,6 +27,7 @@ namespace Dicer.Views
                 HorizontalTextAlignment = TextAlignment.End,
                 HorizontalOptions = LayoutOptions.Fill,
             };
+            //valueEntry.SetBinding(Entry.TextProperty, nameof(Value));
             #endregion
 
             var mainLayout = new Grid
@@ -60,11 +63,11 @@ namespace Dicer.Views
 
         public static readonly BindableProperty IsCheckedProperty =
             BindableProperty.Create(
-                propertyName: nameof(Value),
+                propertyName: nameof(IsChecked),
                 returnType: typeof(bool),
                 declaringType: typeof(SwitchableEntryCell),
-                defaultValue: false,
-                propertyChanged: OnValuePropertyChanged);
+                defaultBindingMode: BindingMode.TwoWay,
+                defaultValue: false);
         #endregion
 
         #region Properties

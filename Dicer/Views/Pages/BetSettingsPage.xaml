@@ -33,31 +33,82 @@
                 </ViewCell>
             </TableSection>
             <TableSection Title="Stop Betting After">
-                <views:SwitchableEntryCell Text="Stop On Win" IsChecked="{Binding ShouldStopOnProfit}"
-                                           Value="{Binding StopOnProfit}"/>
-                <views:SwitchableEntryCell Text="Stop On Loss" IsChecked="{Binding ShouldStopOnLoss}"
-                                           Value="{Binding StopOnLoss}"/>
+                <ViewCell>
+                    <Grid>
+                        <views:CheckBox Grid.Column="0" Text="Stop On Win" IsChecked="{Binding ShouldStopOnProfit}" />
+                        <Entry Grid.Column="1" Text="{Binding StopOnProfit}" Margin="8, 0" 
+                               HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </ViewCell>
+                <ViewCell>
+                    <Grid>
+                        <views:CheckBox Grid.Column="0" Text="Stop On Loss" IsChecked="{Binding ShouldStopOnLoss}" />
+                        <Entry Grid.Column="1" Text="{Binding StopOnLoss}" Margin="8, 0" 
+                               HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </ViewCell>
             </TableSection>
             <TableSection Title="On Win">
                 <ViewCell>
                     <views:CheckBox Text="Return to base" IsChecked="{Binding ReturnToBase_OnWin}"/>
                 </ViewCell>
-                <views:SwitchableEntryCell Text="Inrcrease bet by" IsChecked="{Binding IncreaseBet_OnWin}"
-                                           Value="{Binding IncreaseAmount_OnWin}"/>
-                <views:SwitchableEntryCell Text="Change odds" IsChecked="{Binding ChangeOdds_OnWin}"
-                                           Value="{Binding ChangeOdd_OnWin}"/>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <views:CheckBox Grid.Column="0" Text="Inrcrease bet" IsChecked="{Binding IncreaseBet_OnWin}" />
+                        <Entry Grid.Column="1" Text="{Binding IncreaseAmount_OnWin}" Margin="8, 0" 
+                               HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
+                        <Label Grid.Column="2" Text="%" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    </Grid>
+                </ViewCell>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <views:CheckBox Grid.Column="0" Text="Change odds" IsChecked="{Binding ChangeOdds_OnWin}" />
+                        <Entry Grid.Column="1" Text="{Binding NewOdd_OnWin}" Margin="8, 0" 
+                               HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </ViewCell>
             </TableSection>
             <TableSection Title="On Lose">
                 <ViewCell>
                     <views:CheckBox Text="Return to base" IsChecked="{Binding ReturnToBase_OnLose}"/>
                 </ViewCell>
-                <views:SwitchableEntryCell Text="Inrcrease bet by" IsChecked="{Binding IncreaseBet_OnLose}"
-                                           Value="{Binding IncreaseAmount_OnLose}"/>
-                <views:SwitchableEntryCell Text="Change odds" IsChecked="{Binding ChangeOdds_OnLose}"
-                                           Value="{Binding ChangeOdd_OnLose}"/>
+                
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <views:CheckBox Grid.Column="0" Text="Inrcrease bet" IsChecked="{Binding IncreaseBet_OnLose}" />
+                        <Entry Grid.Column="1" Text="{Binding IncreaseAmount_OnLose}"  Margin="8, 0" 
+                               HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand"/>
+                        <Label Grid.Column="2" Text="%" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    </Grid>
+                </ViewCell>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <views:CheckBox Grid.Column="0" Text="Change odds" IsChecked="{Binding ChangeOdds_OnLose}" />
+                        <Entry Grid.Column="1" Text="{Binding NewOdd_OnLose}" Margin="8, 0" 
+                               HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </ViewCell>
             </TableSection>
         </TableView>
 
-        <Button Grid.Row="1" FontSize="Large" Text="Start" Clicked="OnStartClicked"/>
+        <Button Grid.Row="1" FontSize="Large" Text="Next" Clicked="OnStartClicked"/>
     </Grid>
 </ContentPage>

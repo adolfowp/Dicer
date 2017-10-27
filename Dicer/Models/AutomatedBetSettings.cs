@@ -193,7 +193,7 @@ namespace Dicer.Models
             get { return _IncreaseAmount_OnWin; }
             set { SetProperty(ref _IncreaseAmount_OnWin, value); }
         }
-        public decimal ChangeOdd_OnWin
+        public decimal NewOdd_OnWin
         {
             get { return _NewOdd_OnWin; }
             set { SetProperty(ref _NewOdd_OnWin, value); }
@@ -233,10 +233,10 @@ namespace Dicer.Models
 
         public decimal IncreaseAmount_OnLose
         {
-            get { return _IncreaseAmount_OnWin; }
-            set { SetProperty(ref _IncreaseAmount_OnWin, value); }
+            get { return _IncreaseAmount_OnLose; }
+            set { SetProperty(ref _IncreaseAmount_OnLose, value); }
         }
-        public decimal ChangeOdd_OnLose
+        public decimal NewOdd_OnLose
         {
             get { return _NewOdd_OnLose; }
             set { SetProperty(ref _NewOdd_OnLose, value); }

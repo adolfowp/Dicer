@@ -12,7 +12,27 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.ColumnSpan="2" Text="AUTOMATED BET"  FontSize="Large"
+               HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+
+        <local:ValueExposer Grid.Row="1" Title="WON" TitleColor="#64DD17" Image="thumb_up.png"
+                            Value="{Binding Won}"/>
+
+        <Button Grid.Column="0" Grid.Row="5" Text="Start" Margin="2" 
+                Command="{Binding StartCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" />
         
+        <Button Grid.Column="1" Grid.Row="5" Text="Stop" Margin="2" Command="{Binding StopCommand}" />
+
     </Grid>
     
 </ContentPage>

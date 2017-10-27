@@ -107,7 +107,10 @@ namespace Dicer.Views
         public bool IsChecked
         {
             get { return (bool)GetValue(IsCheckedProperty); }
-            set { SetValue(IsCheckedProperty, value); }
+            set
+            {
+                SetValue(IsCheckedProperty, value);
+            }
         }
 
         public string Text

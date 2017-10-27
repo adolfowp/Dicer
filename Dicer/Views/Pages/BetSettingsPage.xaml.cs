@@ -10,7 +10,7 @@ namespace Dicer
         AutomatedBetSettings betSettings = new AutomatedBetSettings();
         DiceSite _site;
 
-        public BetSettingsPage()
+        protected BetSettingsPage()
         {
             InitializeComponent();
         }

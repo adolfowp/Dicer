@@ -49,77 +49,13 @@ namespace Dicer
         }
 
         #region Properties
-        public decimal BaseBalance
-        {
-            get { return _baseBalance; }
-            set { SetProperty(ref _baseBalance, value); }
-        }
-
         protected IAutomationRunner Strategy { get; set; }
 
         public ICommand StartCommand { get; private set; }
         public ICommand StopCommand { get; private set; }
 
-        public decimal StartingBet
-        {
-            get { return _startingBet; }
-            set { SetProperty(ref _startingBet, value); }
-        }
-        public decimal OnLose
-        {
-            get { return _onLose; }
-            set { SetProperty(ref _onLose, value); }
-        }
-        public decimal OnWin
-        {
-            get { return _onWin; }
-            set { SetProperty(ref _onWin, value); }
-        }
-
-        public bool ReturnToBaseOnLose
-        {
-            get { return _returnToBaseOnLose; }
-            set
-            {
-                SetProperty(ref _returnToBaseOnLose, value,
-                             onChanged: () => IncrementOnLoseEnabled = !value);
-            }
-        }
-
-        public bool ReturnToBaseOnWin
-        {
-            get { return _returnToBaseOnWin; }
-            set
-            {
-                SetProperty(ref _returnToBaseOnWin, value,
-                             onChanged: () => IncrementOnWinEnabled = !value);
-            }
-        } 
-
-        public bool IncrementOnLoseEnabled 
-        {
-            get { return _isIncrementOnLoseEnabled; }
-            set { SetProperty(ref _isIncrementOnLoseEnabled, value); }
-        }
-        public bool IncrementOnWinEnabled
-        {
-			get { return _isIncrementOnWinEnabled; }
-			set { SetProperty(ref _isIncrementOnWinEnabled, value); }
-        }
-
-        public bool LimitOnProfitEnabled
-        {
-            get { return _isLimitOnProfitEnabled; }
-            set { SetProperty(ref _isLimitOnProfitEnabled, value); }
-        }
-
-		public bool LimitOnLossesEnabled
-		{
-			get { return _isLimitOnLossesEnabled; }
-            set { SetProperty(ref _isLimitOnLossesEnabled, value); }
-		}
-
-
+        public int Won => _site.wins;
+        public int Loss => _site.losses;
 		#endregion
 
 		#region Methods

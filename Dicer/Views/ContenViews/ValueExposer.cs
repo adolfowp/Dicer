@@ -14,33 +14,30 @@ namespace Dicer
         public ValueExposer()
         {
             #region Icona
-            //_icon = new Image
-            //{
-            //    WidthRequest = 64,
-            //    HeightRequest = 64,
-            //};
-            //Grid.SetColumn(_icon, 0);
-            //Grid.SetRow(_icon, 0);
-            //Grid.SetRowSpan(_icon, 2);
+            _icon = new Image
+            {
+                WidthRequest = 64,
+                HeightRequest = 64,
+            };
+            Grid.SetColumn(_icon, 0);
+            Grid.SetRow(_icon, 0);
+            Grid.SetRowSpan(_icon, 2);
             #endregion
             #region Title Label
             _titleLabel = new Label
             {
-                FontSize = Device.GetNamedSize(NamedSize.Small, _titleLabel),
+                FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
                 TextColor = TitleColor,
-                Text = Title,
             };
-            _titleLabel.SetBinding(Label.TextProperty, nameof(Title));
             Grid.SetColumn(_titleLabel, 1);
             Grid.SetRow(_titleLabel, 1);
             #endregion
             #region Value Label
             _valueLabel = new Label
             {
-                FontSize = Device.GetNamedSize(NamedSize.Medium, _valueLabel),
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 TextColor = Color.Black,
             };
-            _valueLabel.SetBinding(Label.TextProperty, nameof(Value));
             Grid.SetColumn(_valueLabel, 1);
             Grid.SetRow(_valueLabel, 0);
             #endregion
@@ -49,8 +46,8 @@ namespace Dicer
             {
                 ColumnDefinitions = new ColumnDefinitionCollection
                 {
-                    new ColumnDefinition { Width = GridLength.Auto },
-                    new ColumnDefinition { Width = GridLength.Star },
+                    new ColumnDefinition { Width = new GridLength(28) },
+                    new ColumnDefinition { Width = new GridLength(60) },
                 },
                 RowDefinitions = new RowDefinitionCollection
                 {
@@ -59,7 +56,7 @@ namespace Dicer
                 },
                 Children =
                 {
-                    //_icon,
+                    _icon,
                     _valueLabel,
                     _titleLabel,
                 },
@@ -71,17 +68,17 @@ namespace Dicer
         #endregion
 
         #region Properties
-        //public string Image
-        //{
-        //    get
-        //    {
-        //        return base.GetValue(ImageProperty).ToString();
-        //    }
-        //    set
-        //    {
-        //        base.SetValue(ImageProperty, value);
-        //    }
-        //}
+        public string Image
+        {
+            get
+            {
+                return base.GetValue(ImageProperty).ToString();
+            }
+            set
+            {
+                base.SetValue(ImageProperty, value);
+            }
+        }
         public decimal Value
         {
             get
@@ -121,50 +118,59 @@ namespace Dicer
         public static readonly BindableProperty ValueProperty = BindableProperty.Create(
             propertyName: nameof(Value),
             returnType: typeof(decimal),
-            declaringType: typeof(ValueExposer));
+            declaringType: typeof(ValueExposer),
+            defaultValue: 0m,
+            propertyChanged: ValuePropertyChanged);
 
-        //public readonly BindableProperty ImageProperty = BindableProperty.Create(
-        //    propertyName: nameof(Image),
-        //    returnType: typeof(string),
-        //    declaringType: typeof(ValueExposer),
-        //    propertyChanged: ImagePropertyChanged);
+        public static readonly BindableProperty ImageProperty = BindableProperty.Create(
+            propertyName: nameof(Image),
+            returnType: typeof(string),
+            declaringType: typeof(ValueExposer),
+            defaultValue: null,
+            propertyChanged: ImagePropertyChanged);
 
         public static readonly BindableProperty TitleProperty = BindableProperty.Create(
             propertyName: nameof(Title),
             returnType: typeof(string),
-            declaringType: typeof(ValueExposer));
+            declaringType: typeof(ValueExposer),
+            defaultValue: string.Empty,
+            propertyChanged: TitleTextPropertyChanged);
 
         public static readonly BindableProperty TitleColorProperty = BindableProperty.Create(
             propertyName: nameof(TitleColor),
             returnType: typeof(Color),
             declaringType: typeof(ValueExposer),
-            defaultValue: Color.Black);
+            defaultValue: Color.Black,
+            propertyChanged: TitleColorPropertyChanged);
         #endregion
 
         #region Methods
-        //private static void ImagePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    var control = (ValueExposer)bindable;
-        //    control._icon.Source = ImageSource.FromFile(newValue.ToString());
-        //}
+        private static void ImagePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue == null)
+                return;
 
-        //private static void ValuePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    var control = (ValueExposer)bindable;
-        //    control._valueLabel.Text = newValue.ToString();
-        //}
+            var control = (ValueExposer)bindable;
+            control._icon.Source = ImageSource.FromFile(newValue.ToString());
+        }
 
-        //private static void TitleTextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    var control = (ValueExposer)bindable;
-        //    control._titleLabel.Text = newValue.ToString();
-        //}
+        private static void ValuePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (ValueExposer)bindable;
+            control._valueLabel.Text = newValue.ToString();
+        }
 
-        //private static void TitleColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    var control = (ValueExposer)bindable;
-        //    control._titleLabel.TextColor = (Color)newValue;
-        //}
+        private static void TitleTextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (ValueExposer)bindable;
+            control._titleLabel.Text = newValue.ToString();
+        }
+
+        private static void TitleColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (ValueExposer)bindable;
+            control._titleLabel.TextColor = (Color)newValue;
+        }
         #endregion
 
     }

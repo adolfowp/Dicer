@@ -39,7 +39,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Dice\PlayViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\sqlite_helper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\PlayPageFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -60,7 +59,6 @@
       <DependentUpon>NewItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Data Templates\BetRowTemplate.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\PlayPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\AutomaticPlayPage.xaml.cs">
       <DependentUpon>AutomaticPlayPage.xaml</DependentUpon>
     </Compile>
@@ -68,9 +66,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\IAutomable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IAutomationRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Strategies\MartingaleViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Dice\MartingalePage.xaml.cs">
-      <DependentUpon>MartingalePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Data Templates\SwitchableEntryCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Data Templates\MasterPageItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Pages\MasterPage.cs" />
@@ -103,9 +98,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\NewItemPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Dice\AutomaticPlayPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Dice\MartingalePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Pages\BetSettingsPage.xaml">
