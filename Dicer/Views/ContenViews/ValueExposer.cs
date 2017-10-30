@@ -47,7 +47,7 @@ namespace Dicer
                 ColumnDefinitions = new ColumnDefinitionCollection
                 {
                     new ColumnDefinition { Width = new GridLength(28) },
-                    new ColumnDefinition { Width = new GridLength(60) },
+                    new ColumnDefinition { Width = GridLength.Auto },
                 },
                 RowDefinitions = new RowDefinitionCollection
                 {

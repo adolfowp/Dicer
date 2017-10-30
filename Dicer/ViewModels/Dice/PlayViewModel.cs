@@ -193,5 +193,12 @@ namespace Dicer
 
         public ObservableCollection<Bet> Bets { get; set; }
         #endregion
+
+        #region Methods
+        public void RefreshValues()
+        {
+            OnPropertyChanged("");
+        }
+        #endregion
     }
 }

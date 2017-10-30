@@ -8,5 +8,7 @@ namespace Dicer
         Task<int> Run(DiceSite Site);
         void Stop();
         bool CanExecute(DiceSite Site);
+
+        event EventHandler Refresh;
     }
 }

@@ -28,6 +28,8 @@ namespace Dicer
         private bool _isLimitOnLossesEnabled = false;
         private bool _isIncrementOnLoseEnabled = false;
         private bool _isIncrementOnWinEnabled = false;
+
+        AutomatedBetSettings _settings;
         #endregion
 
         public MartingaleViewModel(DiceSite Site, AutomatedBetSettings settings)
@@ -39,7 +41,7 @@ namespace Dicer
                 if (_onLose == 0)
                     _onLose = (BetMultiplier / (BetMultiplier - 1)) * 1.05m;
 
-                Strategy = new Martingale(settings);
+                Strategy = new Martingale(_settings = settings);
                 await Strategy.Run(_site);  
             });
 
@@ -56,6 +58,21 @@ namespace Dicer
 
         public int Won => _site.wins;
         public int Loss => _site.losses;
+
+        public decimal Luck
+        {
+            get
+            {
+                if (_settings == null || _settings.Chance == 0)
+                    return 0m;
+
+                return ((Won / (Won + Loss)) / _settings.Chance);
+            }
+        } 
+
+        public decimal Wagered => _site.wagered;
+
+        public decimal Profit => _site.profit;
 		#endregion
 
 		#region Methods

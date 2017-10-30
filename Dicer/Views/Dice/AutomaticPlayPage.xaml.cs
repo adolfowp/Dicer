@@ -25,5 +25,10 @@ namespace Dicer
 
             viewmodel.Title = _titleText;
         }
+
+        private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewmodel.RefreshValues();
+        }
     }
 }

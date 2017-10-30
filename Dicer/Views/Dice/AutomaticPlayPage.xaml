@@ -6,7 +6,7 @@
     x:Class="Dicer.AutomaticPlayPage"
     Title = "{Binding Title}">
 
-    <Grid Padding = "20,20,20,20" RowSpacing = "10">
+    <Grid Padding = "20,20,20,20" RowSpacing = "30">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -19,19 +19,40 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Label Grid.ColumnSpan="2" Text="AUTOMATED BET"  FontSize="Large"
                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
 
-        <local:ValueExposer Grid.Row="1" Title="WON" TitleColor="#64DD17" Image="thumb_up.png"
+        <Label Grid.Row="1" Text="Currency" />
+        <Picker Grid.Row="1" Grid.Column="1" SelectedIndexChanged="Picker_SelectedIndexChanged"
+                ItemsSource="{Binding Currencies}" SelectedItem="{Binding Currency}" />
+
+        <local:ValueExposer Grid.Row="2" Grid.Column="0" Title="WON" TitleColor="#64DD17" Image="thumb_up.png"
                             Value="{Binding Won}"/>
 
-        <Button Grid.Column="0" Grid.Row="5" Text="Start" Margin="2" 
+        <local:ValueExposer Grid.Row="2" Grid.Column="1" Title="LOSS" TitleColor="#E53935" Image="thumb_down.png"
+                            Value="{Binding Loss}"/>
+
+        <local:ValueExposer Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                            Title="LUCK" TitleColor="#42A5F5" Image="lucky.png"
+                            Value="{Binding Luck, Mode=OneWay}"/>
+
+        <local:ValueExposer Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  
+                            Title="WAGERED" TitleColor="#FFC400" Image="currency_btc.png"
+                            Value="{Binding Wagered}"/>
+
+        <local:ValueExposer Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  
+                            Title="PROFIT" TitleColor="#757575" Image="trophy.png"
+                            Value="{Binding Profit}"/>
+
+        <Button Grid.Column="0" Grid.Row="6" Text="Start" Margin="2" HeightRequest="50"
                 Command="{Binding StartCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" />
-        
-        <Button Grid.Column="1" Grid.Row="5" Text="Stop" Margin="2" Command="{Binding StopCommand}" />
+
+        <Button Grid.Column="1" Grid.Row="6" Text="Stop" Margin="2"  HeightRequest="50"
+                Command="{Binding StopCommand}" />
 
     </Grid>
     

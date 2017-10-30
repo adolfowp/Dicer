@@ -12,6 +12,8 @@ namespace Dicer
         AutomatedBetSettings _settings;
 
         volatile bool stop = false;
+
+        public event EventHandler Refresh;
         #endregion
 
         public Martingale(AutomatedBetSettings settings)
@@ -65,6 +67,8 @@ namespace Dicer
 
                 if (_settings.BetOn == BetOnEnum.Alternate)
                     bettingHigh = !bettingHigh;
+
+                Refresh?.Invoke(this, EventArgs.Empty);
 
             };
 
