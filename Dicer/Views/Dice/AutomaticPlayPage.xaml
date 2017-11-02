@@ -44,7 +44,11 @@
                             Title="WAGERED" TitleColor="#FFC400" Image="currency_btc.png"
                             Value="{Binding Wagered}"/>
 
-        <local:ValueExposer Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  
+        <local:ValueExposer Grid.Row="5" Grid.Column="0" 
+                            Title="BALANCE" TitleColor="#2E7D32" Image="cash.png"
+                            Value="{Binding Balance}"/>
+
+        <local:ValueExposer Grid.Row="5" Grid.Column="1" 
                             Title="PROFIT" TitleColor="#757575" Image="trophy.png"
                             Value="{Binding Profit}"/>
 

@@ -42,6 +42,10 @@ namespace Dicer
                     _onLose = (BetMultiplier / (BetMultiplier - 1)) * 1.05m;
 
                 Strategy = new Martingale(_settings = settings);
+                Strategy.Refresh += (obj, arg) =>
+                {
+                    RefreshValues();
+                };
                 await Strategy.Run(_site);  
             });
 
@@ -73,6 +77,8 @@ namespace Dicer
         public decimal Wagered => _site.wagered;
 
         public decimal Profit => _site.profit;
+
+        public decimal Balance => _site.balance;
 		#endregion
 
 		#region Methods

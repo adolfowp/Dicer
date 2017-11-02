@@ -220,3 +220,4 @@ D:\lombardi\Dicer\Dicer\Droid\obj\Debug\android\assets\Xamarin.Forms.DataGrid.dl
 D:\lombardi\Dicer\Dicer\Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\lombardi\Dicer\Dicer\Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 D:\lombardi\Dicer\Dicer\Droid\obj\Debug\res\drawable\lucky.png
+D:\lombardi\Dicer\Dicer\Droid\obj\Debug\res\drawable\cash.png
