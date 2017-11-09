@@ -23,7 +23,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.ColumnSpan="2" Text="AUTOMATED BET"  FontSize="Large"
+        <Label Grid.ColumnSpan="2" Text="{Binding Status}"  FontSize="Small"
                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
 
         <Label Grid.Row="1" Text="Currency" />
@@ -38,7 +38,7 @@
 
         <local:ValueExposer Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
                             Title="LUCK" TitleColor="#42A5F5" Image="lucky.png"
-                            Value="{Binding Luck, Mode=OneWay}"/>
+                            Value="{Binding Luck}"/>
 
         <local:ValueExposer Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  
                             Title="WAGERED" TitleColor="#FFC400" Image="currency_btc.png"

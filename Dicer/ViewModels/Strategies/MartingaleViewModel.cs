@@ -51,6 +51,9 @@ namespace Dicer
 
             StopCommand = new Command(() => Strategy.Stop());
 
+            MessagingCenter.Subscribe<DiceSite, string>(this, "error", (sender, args) => Strategy.Stop());
+            MessagingCenter.Subscribe<DiceSite, string>(this, "updateStatus", (sender, args) => Status = args);
+
             Title = "Martingale";
         }
 

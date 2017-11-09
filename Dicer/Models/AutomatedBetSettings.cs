@@ -54,7 +54,7 @@ namespace Dicer.Models
                 SetProperty(ref _BetOdds, value,
                     onChanged: () =>
                     {
-                        SetProperty(ref _Chance, (1 / value) * 0.99m);
+                        SetProperty(ref _Chance, (100 / value) * 0.99m);
                     });
             }
         }
@@ -155,7 +155,7 @@ namespace Dicer.Models
             set { SetProperty(ref _StopOnLoss, value); }
         }
 
-        public BetResultAction BetAction_OnWin { get; set; }
+        public BetResultAction BetAction_OnWin { get; set; } = BetResultAction.ReturnToBase;
 
         public bool ReturnToBase_OnWin
         {
@@ -199,7 +199,7 @@ namespace Dicer.Models
             set { SetProperty(ref _NewOdd_OnWin, value); }
         }
 
-        public BetResultAction BetAction_OnLose { get; set; }
+        public BetResultAction BetAction_OnLose { get; set; } = BetResultAction.ReturnToBase;
         public bool ReturnToBase_OnLose
         {
             get { return _ReturnToBase_OnLose; }

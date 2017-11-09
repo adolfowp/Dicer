@@ -454,7 +454,9 @@ namespace Dicer
                     MessagingCenter.Send<DiceSite, string>(this, "updateStatus", err);
 				else
                     MessagingCenter.Send<DiceSite, string>(this, "updateStatus", "Something went wrong! stopped betting");
-			}
+
+                MessagingCenter.Send<DiceSite, string>(this, "error", err);
+            }
 
             return false;
 		}
