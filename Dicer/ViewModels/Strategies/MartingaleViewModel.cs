@@ -73,7 +73,7 @@ namespace Dicer
                 if (_settings == null || _settings.Chance == 0)
                     return 0m;
 
-                return ((Won / (Won + Loss)) / _settings.Chance);
+                return ((Won / (Won + Loss) * 10000) / _settings.Chance);
             }
         } 
 

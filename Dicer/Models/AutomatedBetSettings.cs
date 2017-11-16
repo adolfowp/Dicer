@@ -51,11 +51,14 @@ namespace Dicer.Models
             get { return _BetOdds; }
             set
             {
-                SetProperty(ref _BetOdds, value,
-                    onChanged: () =>
-                    {
-                        SetProperty(ref _Chance, (100 / value) * 0.99m);
-                    });
+                if (value != 0)
+                {
+                    SetProperty(ref _BetOdds, value,
+                        onChanged: () =>
+                        {
+                            SetProperty(ref _Chance, (100 / value) * 0.99m);
+                        });
+                }
             }
         }
 
@@ -64,11 +67,14 @@ namespace Dicer.Models
             get { return _Chance; }
             set
             {
-                SetProperty(ref _Chance, value,
-                    onChanged: () =>
-                    {
-                        SetProperty(ref _BetOdds, (1 / value) * 0.99m);
-                    });
+                if (value != 0)
+                {
+                    SetProperty(ref _Chance, value,
+                        onChanged: () =>
+                        {
+                            SetProperty(ref _BetOdds, (100 / value) * 0.99m);
+                        });
+                }
             }
         }
         public int Rolls

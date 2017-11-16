@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:views="clr-namespace:Dicer.Views"
-    x:Class="Dicer.BetSettingsPage">
-	<Grid>
+    x:Class="Dicer.BetSettingsPage"
+    Title="Bet Settings">
+	<Grid Padding="6, 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -36,14 +37,14 @@
                 <ViewCell>
                     <Grid>
                         <views:CheckBox Grid.Column="0" Text="Stop On Win" IsChecked="{Binding ShouldStopOnProfit}" />
-                        <Entry Grid.Column="1" Text="{Binding StopOnProfit}" Margin="8, 0" 
+                        <Entry Grid.Column="1" Text="{Binding StopOnProfit}" Margin="8, 0" Keyboard="Numeric"  
                                HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </ViewCell>
                 <ViewCell>
                     <Grid>
                         <views:CheckBox Grid.Column="0" Text="Stop On Loss" IsChecked="{Binding ShouldStopOnLoss}" />
-                        <Entry Grid.Column="1" Text="{Binding StopOnLoss}" Margin="8, 0" 
+                        <Entry Grid.Column="1" Text="{Binding StopOnLoss}" Margin="8, 0" Keyboard="Numeric" 
                                HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </ViewCell>
@@ -60,7 +61,7 @@
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
                         <views:CheckBox Grid.Column="0" Text="Inrcrease bet" IsChecked="{Binding IncreaseBet_OnWin}" />
-                        <Entry Grid.Column="1" Text="{Binding IncreaseAmount_OnWin}" Margin="8, 0" 
+                        <Entry Grid.Column="1" Text="{Binding IncreaseAmount_OnWin}" Margin="8, 0" Keyboard="Numeric"  
                                HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
                         <Label Grid.Column="2" Text="%" VerticalOptions="Center" VerticalTextAlignment="Center"/>
                     </Grid>
@@ -72,7 +73,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <views:CheckBox Grid.Column="0" Text="Change odds" IsChecked="{Binding ChangeOdds_OnWin}" />
-                        <Entry Grid.Column="1" Text="{Binding NewOdd_OnWin}" Margin="8, 0" 
+                        <Entry Grid.Column="1" Text="{Binding NewOdd_OnWin}" Margin="8, 0" Keyboard="Numeric"  
                                HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </ViewCell>
@@ -90,7 +91,7 @@
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
                         <views:CheckBox Grid.Column="0" Text="Inrcrease bet" IsChecked="{Binding IncreaseBet_OnLose}" />
-                        <Entry Grid.Column="1" Text="{Binding IncreaseAmount_OnLose}"  Margin="8, 0" 
+                        <Entry Grid.Column="1" Text="{Binding IncreaseAmount_OnLose}"  Margin="8, 0" Keyboard="Numeric"  
                                HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand"/>
                         <Label Grid.Column="2" Text="%" VerticalOptions="Center" VerticalTextAlignment="Center"/>
                     </Grid>
@@ -102,7 +103,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <views:CheckBox Grid.Column="0" Text="Change odds" IsChecked="{Binding ChangeOdds_OnLose}" />
-                        <Entry Grid.Column="1" Text="{Binding NewOdd_OnLose}" Margin="8, 0" 
+                        <Entry Grid.Column="1" Text="{Binding NewOdd_OnLose}" Margin="8, 0" Keyboard="Numeric"  
                                HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </ViewCell>

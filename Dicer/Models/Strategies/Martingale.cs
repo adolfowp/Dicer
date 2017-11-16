@@ -12,6 +12,7 @@ namespace Dicer
         AutomatedBetSettings _settings;
 
         volatile bool stop = false;
+        bool AreRollsLimited = false;
 
         public event EventHandler Refresh;
         #endregion
@@ -19,6 +20,9 @@ namespace Dicer
         public Martingale(AutomatedBetSettings settings)
         {
             _settings = settings;
+
+            if (_settings.Rolls > 0)
+                AreRollsLimited = true;
         }
 
         #region Methods
@@ -88,6 +92,8 @@ namespace Dicer
                 if (Math.Abs(Site.profit) >= _settings.StopOnLoss)
                     return false;
             }
+            if (AreRollsLimited && _settings.Rolls-- <= 0)
+                return false;
 
             return !stop;
         }
